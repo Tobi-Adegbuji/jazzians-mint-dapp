@@ -9,7 +9,7 @@ function Mint() {
   return (
     <Layout>
         <div className={styles.mint__form}>
-            <NftCard tilt glare/>
+            <NftCard tilt glare img="img/4.jfif"/>
         </div>
     </Layout>
   )

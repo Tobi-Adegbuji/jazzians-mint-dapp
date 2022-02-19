@@ -15,12 +15,14 @@ function NftCard(props) {
         {props.img ? (
           <img src={`/${props.img}`} className={styles.card__img} />
         ) : (
-          <img
-            className={styles.card__img}
-            style={{ padding: "50px" }}
-            src={"/question.jpg"}
-            alt=""
-          />
+          <h1 
+          style={{ 
+            "fontSize": "200px",
+            "margin": 0,
+            "margin": "auto"
+          
+          }}
+          className={styles.card__img}>?</h1>
         )}
         <div className={styles.card__info}>
           <p>Jazzians</p>
