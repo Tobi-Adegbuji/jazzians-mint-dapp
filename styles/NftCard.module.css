@@ -1,0 +1,66 @@
+.card{
+    height: 380px;
+    width: 250px;
+    background-color: #BEA8A7;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 20px 2px;
+
+}
+
+.card__img{
+    border-radius: 12px 12px 0 0;
+    height: 67%;
+    width: 100%;
+    background-color: aliceblue;
+    object-fit: cover;
+    object-position: center;  
+    /* Fixes wierd 3px bottom margin */
+    vertical-align: middle;
+    /* border: solid rgba(0, 0, 0, 0.384) .3px; */
+
+}
+
+.card__info{
+    height: 28%;
+    width: 100%;
+    background-color: white;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+
+.card__info > p{ 
+    margin: 0;
+}
+
+.card__details{
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    height: fit-content;
+}
+
+.card__details > p{
+    margin: 0;
+}
+
+.card_pricing{
+    display: flex;
+    align-items: center;
+}
+
+.card_pricing > p{
+    margin: 0;
+}
+
+.card_pricing > img{
+    margin-left: 6px;
+}
+
+.nft__number{
+    display: flex;
+}
+
+.nft__number > p{
+    margin: 0;
+}

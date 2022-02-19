@@ -9,13 +9,11 @@ contract Jazzian is ERC721Enumerable, Ownable {
 
   string public baseURI;
   string public baseExtension = ".json";
-  string public notRevealedUri;
   uint256 public cost = .5 ether;
   uint256 public maxSupply = 20;
   uint256 public maxMintAmount = 1;
   uint256 public nftPerAddressLimit = 2;
   bool public paused = false;
-  bool public revealed = false;
   bool public onlyWhitelisted = true;
   address[] public whitelistedAddresses;
   mapping(address => uint256) public addressMintedBalance;
@@ -102,9 +100,6 @@ contract Jazzian is ERC721Enumerable, Ownable {
   }
 
   //only owner
-  function reveal() public onlyOwner {
-      revealed = true;
-  }
   
   function setNftPerAddressLimit(uint256 _limit) public onlyOwner {
     nftPerAddressLimit = _limit;
@@ -124,10 +119,6 @@ contract Jazzian is ERC721Enumerable, Ownable {
 
   function setBaseExtension(string memory _newBaseExtension) public onlyOwner {
     baseExtension = _newBaseExtension;
-  }
-  
-  function setNotRevealedURI(string memory _notRevealedURI) public onlyOwner {
-    notRevealedUri = _notRevealedURI;
   }
 
   function pause(bool _state) public onlyOwner {
