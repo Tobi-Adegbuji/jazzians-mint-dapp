@@ -1,12 +1,13 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import Transition from '../components/Transition'
 
 
 function About() {
   return (
-    <Layout>
-        
-    </Layout>
+    <Transition>
+      About Page
+    </Transition>
   )
 }
 

@@ -1,8 +1,12 @@
+import { AnimatePresence } from "framer-motion";
+import Footer from "../components/Footer";
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="page">
       {/* <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,7 +15,19 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </head> */}
-      <Component {...pageProps} />
+
+      <Layout>
+        <Navbar />
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} />
+        </AnimatePresence>
+
+      </Layout>
+      {/* <Footer/> */}
     </div>
   );
 }

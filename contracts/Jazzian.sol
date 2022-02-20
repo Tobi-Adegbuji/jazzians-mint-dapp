@@ -9,9 +9,9 @@ contract Jazzian is ERC721Enumerable, Ownable {
 
   string public baseURI;
   string public baseExtension = ".json";
-  uint256 public cost = .5 ether;
-  uint256 public maxSupply = 20;
-  uint256 public maxMintAmount = 1;
+  uint256 public cost = 1 ether;
+  uint256 public maxSupply = 23;
+  uint256 public maxMintAmount =2;
   uint256 public nftPerAddressLimit = 2;
   bool public paused = false;
   bool public onlyWhitelisted = true;
@@ -33,7 +33,7 @@ contract Jazzian is ERC721Enumerable, Ownable {
   }
 
   // public
-  function mint(uint256 _mintAmount) public payable {
+  function mint(uint256 _mintAmount) public payable returns (uint256, uint256) {
     require(!paused, "the contract is paused");
     uint256 supply = totalSupply();
     require(_mintAmount > 0, "need to mint at least 1 NFT");
@@ -52,6 +52,17 @@ contract Jazzian is ERC721Enumerable, Ownable {
     for (uint256 i = 1; i <= _mintAmount; i++) {
         addressMintedBalance[msg.sender]++;
       _safeMint(msg.sender, supply + i);
+    }
+
+    
+  }
+
+  function getMintedIds(uint256 mintAmount) public view returns (uint256, uint256) {
+    if(mintAmount > 1){
+      return (totalSupply(), totalSupply() - 1); 
+    }
+    else{
+      return (totalSupply(), 0); 
     }
   }
   
@@ -88,16 +99,23 @@ contract Jazzian is ERC721Enumerable, Ownable {
       _exists(tokenId),
       "ERC721Metadata: URI query for nonexistent token"
     );
-    
-    // if(revealed == false) {
-    //     return notRevealedUri;
-    // }
 
     string memory currentBaseURI = _baseURI();
     return bytes(currentBaseURI).length > 0
         ? string(abi.encodePacked(currentBaseURI, tokenId.toString(), baseExtension))
         : "";
   }
+
+
+  function getSummary() public view returns (
+        uint,uint, uint
+    ) {
+        return(
+            maxMintAmount,
+            maxSupply - totalSupply(),
+            cost
+        ); 
+    }
 
   //only owner
   

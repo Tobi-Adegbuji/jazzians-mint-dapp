@@ -3,6 +3,7 @@
     display: flex;
     width: 100%;
     color: #525252;
+    margin-bottom: 20px;
 }
 
 
@@ -13,6 +14,7 @@
 .nav__logo__container > h1{
     margin-left: 10px;
     cursor: pointer;
+    font-weight: bolder;
 
 }
 

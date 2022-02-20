@@ -1,6 +1,6 @@
 .card{
-    height: 380px;
-    width: 250px;
+    height: 460px;
+    width: 300px;
     background-color: #BEA8A7;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.24) 3px 3px 20px 2px;
@@ -17,8 +17,16 @@
     /* Fixes wierd 3px bottom margin */
     vertical-align: middle;
     /* border: solid rgba(0, 0, 0, 0.384) .3px; */
-
+    display: flex;
+    justify-content: center;
 }
+
+.card__img > h1{
+    font-size: 200px;
+    margin: 0;
+    align-self: center;
+}
+
 
 .card__info{
     height: 28%;
@@ -31,6 +39,7 @@
 
 .card__info > p{ 
     margin: 0;
+    color: #BEA8A7;
 }
 
 .card__details{
@@ -51,6 +60,7 @@
 
 .card_pricing > p{
     margin: 0;
+    font-weight: bold;
 }
 
 .card_pricing > img{
@@ -63,4 +73,6 @@
 
 .nft__number > p{
     margin: 0;
+    font-weight: bold;
+
 }

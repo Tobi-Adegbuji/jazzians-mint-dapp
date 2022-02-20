@@ -3,7 +3,6 @@ import styles from "../styles/NftCard.module.css";
 import Tilt from "react-parallax-tilt";
 
 function NftCard(props) {
-    console.log(props.tilt)
   return (
     <Tilt
       tiltEnable={props.tilt == undefined ? false : true}
@@ -15,25 +14,22 @@ function NftCard(props) {
         {props.img ? (
           <img src={`/${props.img}`} className={styles.card__img} />
         ) : (
-          <h1 
-          style={{ 
-            "fontSize": "200px",
-            "margin": 0,
-            "margin": "auto"
-          
-          }}
-          className={styles.card__img}>?</h1>
+          <div className={styles.card__img}>
+            <h1>?</h1>
+          </div>
         )}
         <div className={styles.card__info}>
           <p>Jazzians</p>
           <div className={styles.card__details}>
             <div className={styles.nft__number}>
               <p>Jazzian</p>
-              <p style={{ marginLeft: "8px" }}>#?</p>
+              <p style={{ marginLeft: "8px" }}>
+                {props.nftId > 0 ? `#${props.nftId}` : "#?"}
+                </p>
             </div>
 
             <div className={styles.card_pricing}>
-              <p>.02</p>
+              <p>{props.mintPrice}</p>
               <img src="/eth.png" alt="" />
             </div>
           </div>
@@ -42,5 +38,8 @@ function NftCard(props) {
     </Tilt>
   );
 }
+
+
+
 
 export default NftCard;

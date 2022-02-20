@@ -1,10 +1,11 @@
-import Layout from '../components/Layout'
-import styles from '../styles/Home.module.css'
+import Layout from "../components/Layout";
+import Transition from "../components/Transition";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
-    <Layout>
-        
-    </Layout>
-  )
+    <Transition>
+      <div>Home Page</div>
+      </Transition>
+  );
 }

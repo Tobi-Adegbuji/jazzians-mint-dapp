@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import styles from "../styles/Navbar.module.css";
 
@@ -24,7 +25,7 @@ function Navbar() {
   return (
     <div className={styles.nav}>
       <div className={styles.nav__logo__container}>
-        <h1>jazzians.</h1>
+        <h1>Jazzians</h1>
       </div>
       <div className={styles.nav__links}>
 
@@ -38,10 +39,15 @@ function Navbar() {
         </div>
         
 
-    
+        <Link href={`/`} scroll={true}>
         <h3>Explore</h3>
+        </Link>
+        <Link href={`/about`} scroll={false}>
         <h3>About</h3>
+        </Link>
+        <Link href={`/mint`} scroll={false}>
         <h3>Purchase</h3>
+        </Link>
  
         <h4 className={styles.nav__address}>0x658..d93</h4>
 
